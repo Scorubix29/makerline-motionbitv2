@@ -15,14 +15,15 @@ namespace MakerLine {
     }
 
   
+    let pinMap: DigitalPin[] = []
 
-    let pinMap: DigitalPin[] = [
-        DigitalPin.P16,  // Left
-        DigitalPin.P15,  // Mid-Left
-        DigitalPin.P14,  // Center
-        DigitalPin.P13,  // Mid-Right
-        DigitalPin.P12    // Right
-    ]
+    //% block="set $pos IR sensor pin to $pin"
+    //% group="Setup"
+    export function setSensorPin(pos: SensorPosition, pin: DigitalPin): void {
+        pinMap[pos] = pin
+    }
+
+   
 
     let leftMotor: MotionBitMotorChannel = MotionBitMotorChannel.M1
     let rightMotor: MotionBitMotorChannel = MotionBitMotorChannel.M2
