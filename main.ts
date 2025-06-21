@@ -14,16 +14,7 @@ namespace MakerLine {
         Right
     }
 
-    export enum MotorChannel {
-        //% block="M1"
-        M1,
-        //% block="M2"
-        M2,
-        //% block="M3"
-        M3,
-        //% block="M4"
-        M4
-    }
+  
 
     let pinMap: DigitalPin[] = [
         DigitalPin.P13,  // Left
@@ -33,15 +24,16 @@ namespace MakerLine {
         DigitalPin.P1    // Right
     ]
 
-    let leftMotor = MotorChannel.M1
-    let rightMotor = MotorChannel.M2
+    let leftMotor: MotionBitMotorChannel = MotionBitMotorChannel.M1
+    let rightMotor: MotionBitMotorChannel = MotionBitMotorChannel.M2
 
     //% block="set left motor to $left and right motor to $right"
     //% group="Setup"
-    export function setMotors(left: MotorChannel, right: MotorChannel): void {
+    export function setMotors(left: MotionBitMotorChannel, right: MotionBitMotorChannel): void {
         leftMotor = left
         rightMotor = right
     }
+
 
     //% block="sensor $pos detects black line"
     //% group="Sensors"
