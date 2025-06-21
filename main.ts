@@ -1,6 +1,35 @@
 //% color="#FF8800" weight=100 icon="\uf11b" block="MakerLine"
 namespace MakerLine {
 
+    function angleToTime(angle: number, speed: number): number {
+        // You can fine-tune this formula for your own robot
+        const baseTime = 1000 // time in ms for 180 degrees at speed 100
+        return (angle / 180) * (baseTime * (100 / speed))
+    }
+
+    //% block="turn right $angle degrees at speed $speed"
+    //% group="Motion"
+    export function turnRightAngle(angle: number, speed: number): void {
+        const time = angleToTime(angle, speed)
+        motionbit.runMotor(leftMotor, MotionBitMotorDirection.Forward, speed)
+        motionbit.runMotor(rightMotor, MotionBitMotorDirection.Backward, speed)
+        basic.pause(time)
+        stopMotors()
+    }
+
+
+
+    //% block="turn left $angle degrees at speed $speed"
+    //% group="Motion"
+    export function turnLeftAngle(angle: number, speed: number): void {
+        const time = angleToTime(angle, speed)
+        motionbit.runMotor(leftMotor, MotionBitMotorDirection.Backward, speed)
+        motionbit.runMotor(rightMotor, MotionBitMotorDirection.Forward, speed)
+        basic.pause(time)
+        stopMotors()
+    }
+
+
     export enum SensorPosition {
         //% block="Left"
         Left,
