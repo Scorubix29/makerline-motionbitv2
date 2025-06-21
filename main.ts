@@ -17,11 +17,11 @@ namespace MakerLine {
   
 
     let pinMap: DigitalPin[] = [
-        DigitalPin.P13,  // Left
+        DigitalPin.P16,  // Left
         DigitalPin.P15,  // Mid-Left
         DigitalPin.P14,  // Center
-        DigitalPin.P16,  // Mid-Right
-        DigitalPin.P1    // Right
+        DigitalPin.P13,  // Mid-Right
+        DigitalPin.P12    // Right
     ]
 
     let leftMotor: MotionBitMotorChannel = MotionBitMotorChannel.M1
